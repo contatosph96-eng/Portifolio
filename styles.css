@@ -1,4 +1,8 @@
-/* Configurações Gerais */
+/* ==========================================================================
+   1. Configurações Globais e Reset
+   ========================================================================== */
+
+/* Ativa a rolagem suave ao clicar nos links do menu */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,11 +12,18 @@
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: sans-serif; /* Fonte padrão para o resto */
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   2. Seção Hero (Principal)
+   ========================================================================== */
 /* Container Principal (A largura da página que você pediu antes) */
 .portfolio-hero {
     max-width: 1200px;
@@ -30,13 +41,6 @@ body {
     flex-direction: column;
     align-items: flex-start; /* Alinha o texto e o botão à esquerda */
     gap: 40px; /* Espaço entre o título e o botão */
-}
-
-.titulo {
-    font-family: 'the seasons regular', Georgia, serif;
-    font-size: 4.5rem; /* Aumentado para dar o impacto da imagem */
-    line-height: 1.1;
-    text-align: left; /* Alinhado à esquerda, diferente do center antigo */
 }
 
 /* Botão "Caio Gomes" */
@@ -57,10 +61,9 @@ body {
     border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; /* O segredo do formato de ovo assimétrico */
 }
 
-/* Ativa a rolagem suave ao clicar nos links do menu */
-html {
-    scroll-behavior: smooth;
-}
+/* ==========================================================================
+   3. Estilos Gerais de Seção e Tipografia
+   ========================================================================== */
 
 /* Garante que cada seção ocupe a altura inteira da tela */
 .pagina-secao {
@@ -73,11 +76,25 @@ html {
 
 h1, h2, h3 {
     font-family: 'the seasons regular', Georgia, serif;
-    font-size: 4.5rem; /* Aumentado para dar o impacto da imagem */
     line-height: 1.1;
-    text-align: left;
+    font-weight: normal;
 }
 
+h1 {
+    font-size: 4.5rem;
+}
+
+h2 {
+    font-size: 3.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   4. Seção Sobre
+   ========================================================================== */
 /* Layout da Página Sobre */
 .sobre-container {
     max-width: 1100px;
@@ -99,14 +116,6 @@ h1, h2, h3 {
 .perfil-texto {
     flex: 1;
     max-width: 500px;
-}
-
-.titulo-sobre {
-    font-family: 'the seasons regular', Georgia, serif;
-    font-size: 3.5rem;
-    color: #ffffff;
-    margin-bottom: 40px;
-    font-weight: normal;
 }
 
 .descricao-sobre {
@@ -151,8 +160,6 @@ h1, h2, h3 {
 }
 
 .grupo-lista h3 {
-    font-size: 1.2rem;
-    font-weight: normal;
     color: #ffffff;
     margin-bottom: 15px;
     display: flex;
@@ -185,28 +192,101 @@ h1, h2, h3 {
     position: absolute;
     left: -15px;
 }
-.menu-links,.menu-links2,.menu-links3,.menu-links4 {
-    text-decoration: none;
+
+/* ==========================================================================
+   5. Menu de Navegação
+   ========================================================================== */
+.menu-navegacao {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: center;
-    color: wheat;
     background-color: #242424;
-    font-size: 1.2rem;
+    padding: 15px 0;
+    z-index: 1000; /* Garante que o menu fique sobre todo o conteúdo */
 }
 
-.menu-links a {
+.menu-navegacao a {
     text-decoration: none;
     color: #ffffff;
-    padding: 10px 20px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: wheat;
+    margin: 0 15px;
+    font-size: 1rem;
+}
 
+/* ==========================================================================
+   6. Media Queries para Responsividade
+   ========================================================================== */
+
+/* --- Telas de Tablet (até 1024px) --- */
+@media (max-width: 1024px) {
+    .portfolio-hero {
+        gap: 40px;
+    }
+
+    .hero-imagem img {
+        width: 320px;
+        height: 440px;
+    }
+
+    .perfil-imagem img {
+        width: 300px;
+        height: 400px;
+    }
+
+    h1 { font-size: 4rem; }
+    h2 { font-size: 3rem; }
+}
+
+/* --- Telas de Celular (até 768px) --- */
+@media (max-width: 768px) {
+    body {
+        /* Remove a centralização horizontal para aproveitar toda a largura */
+        display: block;
+    }
+
+    /* Empilha o conteúdo da seção Hero */
+    .portfolio-hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        min-height: 80vh; /* Reduz um pouco a altura em telas pequenas */
+        padding: 80px 20px;
+    }
+
+    .hero-conteudo {
+        align-items: center; /* Centraliza o título e o botão */
+    }
+
+    .hero-imagem {
+        order: -1; /* Coloca a imagem acima do texto */
+    }
+
+    /* Empilha o conteúdo da seção Sobre */
+    .sobre-perfil {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .perfil-texto {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sobre-formacao {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* Ajusta os tamanhos das fontes para telas pequenas */
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    .descricao-sobre { font-size: 1rem; }
+
+    .menu-navegacao a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
 }
