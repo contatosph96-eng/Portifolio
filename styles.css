@@ -1,0 +1,212 @@
+/* Configurações Gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: sans-serif; /* Fonte padrão para o resto */
+    display: flex;
+    justify-content: center;
+}
+
+/* Container Principal (A largura da página que você pediu antes) */
+.portfolio-hero {
+    max-width: 1200px;
+    width: 100%;
+    min-height: 100vh; /* Ocupa a altura da tela */
+    display: flex;
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: space-between; /* Joga o texto para a esquerda e a foto para a direita */
+    padding: 40px;
+}
+
+/* LADO ESQUERDO: Textos */
+.hero-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha o texto e o botão à esquerda */
+    gap: 40px; /* Espaço entre o título e o botão */
+}
+
+.titulo {
+    font-family: 'the seasons regular', Georgia, serif;
+    font-size: 4.5rem; /* Aumentado para dar o impacto da imagem */
+    line-height: 1.1;
+    text-align: left; /* Alinhado à esquerda, diferente do center antigo */
+}
+
+/* Botão "Caio Gomes" */
+.btn-nome {
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #ffffff;
+    padding: 12px 30px;
+    border-radius: 50px; /* Deixa as bordas arredondadas */
+    font-size: 1rem;
+}
+
+/* LADO DIREITO: Foto Oval */
+.hero-imagem img {
+    width: 400px; /* Defina a largura da imagem */
+    height: 550px; /* Altura maior que a largura para o efeito oval */
+    object-fit: cover; /* Faz a foto preencher o espaço sem distorcer */
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; /* O segredo do formato de ovo assimétrico */
+}
+
+/* Ativa a rolagem suave ao clicar nos links do menu */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Garante que cada seção ocupe a altura inteira da tela */
+.pagina-secao {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px; /* Evita que o menu fixo cubra o título da seção */
+}
+
+h1, h2, h3 {
+    font-family: 'the seasons regular', Georgia, serif;
+    font-size: 4.5rem; /* Aumentado para dar o impacto da imagem */
+    line-height: 1.1;
+    text-align: left;
+}
+
+/* Layout da Página Sobre */
+.sobre-container {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Espaço grande entre a parte de cima e a de baixo */
+    padding: 60px 20px;
+}
+
+/* --- BLOCO SUPERIOR (Quem é o Paulo) --- */
+.sobre-perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.perfil-texto {
+    flex: 1;
+    max-width: 500px;
+}
+
+.titulo-sobre {
+    font-family: 'the seasons regular', Georgia, serif;
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.descricao-sobre {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.linha-decorativa {
+    width: 150px;
+    border: none;
+    border-top: 1px solid #ffffff;
+}
+
+/* Imagem Oval do Bloco Sobre */
+.perfil-imagem img {
+    width: 380px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; /* Mesmo efeito oval da imagem image_f406c7.jpg */
+}
+
+/* --- BLOCO INFERIOR (Minha Formação) --- */
+.sobre-formacao {
+    border-top: 1px solid #333333; /* Linha sutil separando as seções */
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sobre-formacao .titulo-sobre {
+    flex: 1;
+}
+
+.formacao-listas {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 600px;
+}
+
+.grupo-lista h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.grupo-lista .seta {
+    color: #ffffff;
+    margin-right: 10px;
+    font-size: 1.3rem;
+}
+
+.grupo-lista ul {
+    list-style: none; /* Remove as bolinhas padrão */
+    padding-left: 25px;
+}
+
+.grupo-lista li {
+    font-size: 1rem;
+    color: #888888; /* Tom cinza elegante para as sub-informações */
+    line-height: 1.8;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+/* Adiciona o pontinho customizado antes de cada item da lista */
+.grupo-lista li::before {
+    content: "•";
+    color: #555555;
+    position: absolute;
+    left: -15px;
+}
+.menu-links,.menu-links2,.menu-links3,.menu-links4 {
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: wheat;
+    background-color: #242424;
+    font-size: 1.2rem;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: wheat;
+
+}
