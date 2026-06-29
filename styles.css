@@ -1,29 +1,23 @@
 /* ==========================================================================
    1. Configurações Globais e Reset
    ========================================================================== */
-
-/* Ativa a rolagem suave ao clicar nos links do menu */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-}
-
 html {
     scroll-behavior: smooth;
 }
 
-/* ==========================================================================
-   2. Seção Hero (Principal)
-   ========================================================================== */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: sans-serif;
+    /* O display flex foi removido para permitir que o layout se ajuste melhor em telas pequenas */
+}
+
 /* Container Principal (A largura da página que você pediu antes) */
 .portfolio-hero {
     max-width: 1200px;
@@ -33,7 +27,12 @@ html {
     align-items: center; /* Alinha verticalmente ao centro */
     justify-content: space-between; /* Joga o texto para a esquerda e a foto para a direita */
     padding: 40px;
+    margin: 0 auto; /* Centraliza o container na página */
 }
+
+/* ==========================================================================
+   2. Seção Hero (Principal)
+   ========================================================================== */
 
 /* LADO ESQUERDO: Textos */
 .hero-conteudo {
@@ -62,7 +61,7 @@ html {
 }
 
 /* ==========================================================================
-   3. Estilos Gerais de Seção e Tipografia
+   3. Estrutura de Seção e Tipografia
    ========================================================================== */
 
 /* Garante que cada seção ocupe a altura inteira da tela */
@@ -86,6 +85,7 @@ h1 {
 
 h2 {
     font-size: 3.5rem;
+    margin-bottom: 40px;
 }
 
 h3 {
@@ -103,6 +103,7 @@ h3 {
     flex-direction: column;
     gap: 100px; /* Espaço grande entre a parte de cima e a de baixo */
     padding: 60px 20px;
+    margin: 0 auto; /* Centraliza o container na página */
 }
 
 /* --- BLOCO SUPERIOR (Quem é o Paulo) --- */
@@ -147,7 +148,7 @@ h3 {
     justify-content: space-between;
 }
 
-.sobre-formacao .titulo-sobre {
+.sobre-formacao h2 {
     flex: 1;
 }
 
@@ -196,19 +197,22 @@ h3 {
 /* ==========================================================================
    5. Menu de Navegação
    ========================================================================== */
-.menu-navegacao {
+.menu-principal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
     background-color: #242424;
-    padding: 15px 0;
     z-index: 1000; /* Garante que o menu fique sobre todo o conteúdo */
+    padding: 15px 0;
 }
 
-.menu-navegacao a {
+.menu-principal nav {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-principal a {
     text-decoration: none;
     color: #ffffff;
     margin: 0 15px;
@@ -221,6 +225,9 @@ h3 {
 
 /* --- Telas de Tablet (até 1024px) --- */
 @media (max-width: 1024px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 3rem; }
+
     .portfolio-hero {
         gap: 40px;
     }
@@ -234,39 +241,34 @@ h3 {
         width: 300px;
         height: 400px;
     }
-
-    h1 { font-size: 4rem; }
-    h2 { font-size: 3rem; }
 }
 
 /* --- Telas de Celular (até 768px) --- */
 @media (max-width: 768px) {
-    body {
-        /* Remove a centralização horizontal para aproveitar toda a largura */
-        display: block;
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    .descricao-sobre { font-size: 1rem; }
+
+    .pagina-secao {
+        padding-top: 60px; /* Reduz o espaçamento do topo */
     }
 
     /* Empilha o conteúdo da seção Hero */
     .portfolio-hero {
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: column-reverse; /* Imagem em cima, texto embaixo */
         text-align: center;
-        min-height: 80vh; /* Reduz um pouco a altura em telas pequenas */
-        padding: 80px 20px;
+        justify-content: center;
     }
 
     .hero-conteudo {
         align-items: center; /* Centraliza o título e o botão */
     }
 
-    .hero-imagem {
-        order: -1; /* Coloca a imagem acima do texto */
-    }
-
     /* Empilha o conteúdo da seção Sobre */
-    .sobre-perfil {
+    .sobre-perfil, .sobre-formacao {
         flex-direction: column;
         text-align: center;
+        gap: 40px;
     }
 
     .perfil-texto {
@@ -275,17 +277,7 @@ h3 {
         flex-direction: column;
     }
 
-    .sobre-formacao {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    /* Ajusta os tamanhos das fontes para telas pequenas */
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2.5rem; }
-    .descricao-sobre { font-size: 1rem; }
-
-    .menu-navegacao a {
+    .menu-principal a {
         margin: 0 10px;
         font-size: 0.9rem;
     }
